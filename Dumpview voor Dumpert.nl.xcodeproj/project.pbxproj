@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */; };
+		965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B31C1DB9DE0012EF7A /* ViewController.swift */; };
+		965E14B71C1DB9DE0012EF7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E14B51C1DB9DE0012EF7A /* Main.storyboard */; };
+		965E14B91C1DB9DE0012EF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E14B81C1DB9DE0012EF7A /* Assets.xcassets */; };
+		965E14BC1C1DB9DE0012EF7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */; };
+		965E14C41C1DBA0C0012EF7A /* DumpertApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */; };
+		965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */; };
+		965E14D81C1DF6AE0012EF7A /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D71C1DF6AE0012EF7A /* Video.swift */; };
+		965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D91C1DF8C90012EF7A /* Image.swift */; };
+		965E14DF1C1DFA860012EF7A /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14DD1C1DFA860012EF7A /* VideoTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumpview voor Dumpert.nl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		965E14B31C1DB9DE0012EF7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		965E14B61C1DB9DE0012EF7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		965E14B81C1DB9DE0012EF7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		965E14BB1C1DB9DE0012EF7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		965E14BD1C1DB9DE0012EF7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpertApi.swift; sourceTree = "<group>"; };
+		965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dumpview voor Dumpert.nl-Bridging-Header.h"; sourceTree = "<group>"; };
+		965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		965E14D71C1DF6AE0012EF7A /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		965E14D91C1DF8C90012EF7A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		965E14DD1C1DFA860012EF7A /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoTableViewController.swift; path = ../VideoTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		965E14AB1C1DB9DE0012EF7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		965E14A51C1DB9DE0012EF7A = {
+			isa = PBXGroup;
+			children = (
+				965E14B01C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */,
+				965E14AF1C1DB9DE0012EF7A /* Products */,
+				965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		965E14AF1C1DB9DE0012EF7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		965E14B01C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */ = {
+			isa = PBXGroup;
+			children = (
+				965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */,
+				965E14B31C1DB9DE0012EF7A /* ViewController.swift */,
+				965E14DD1C1DFA860012EF7A /* VideoTableViewController.swift */,
+				965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */,
+				965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */,
+				965E14D71C1DF6AE0012EF7A /* Video.swift */,
+				965E14D91C1DF8C90012EF7A /* Image.swift */,
+				965E14B51C1DB9DE0012EF7A /* Main.storyboard */,
+				965E14B81C1DB9DE0012EF7A /* Assets.xcassets */,
+				965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */,
+				965E14BD1C1DB9DE0012EF7A /* Info.plist */,
+			);
+			path = "Dumpview voor Dumpert.nl";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		965E14AD1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 965E14C01C1DB9DE0012EF7A /* Build configuration list for PBXNativeTarget "Dumpview voor Dumpert.nl" */;
+			buildPhases = (
+				965E14AA1C1DB9DE0012EF7A /* Sources */,
+				965E14AB1C1DB9DE0012EF7A /* Frameworks */,
+				965E14AC1C1DB9DE0012EF7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dumpview voor Dumpert.nl";
+			productName = "Dumpview voor Dumpert.nl";
+			productReference = 965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		965E14A61C1DB9DE0012EF7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Joep de Jong";
+				TargetAttributes = {
+					965E14AD1C1DB9DE0012EF7A = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 965E14A91C1DB9DE0012EF7A /* Build configuration list for PBXProject "Dumpview voor Dumpert.nl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 965E14A51C1DB9DE0012EF7A;
+			productRefGroup = 965E14AF1C1DB9DE0012EF7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				965E14AD1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		965E14AC1C1DB9DE0012EF7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				965E14BC1C1DB9DE0012EF7A /* LaunchScreen.storyboard in Resources */,
+				965E14B91C1DB9DE0012EF7A /* Assets.xcassets in Resources */,
+				965E14B71C1DB9DE0012EF7A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		965E14AA1C1DB9DE0012EF7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */,
+				965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */,
+				965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */,
+				965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */,
+				965E14DF1C1DFA860012EF7A /* VideoTableViewController.swift in Sources */,
+				965E14C41C1DBA0C0012EF7A /* DumpertApi.swift in Sources */,
+				965E14D81C1DF6AE0012EF7A /* Video.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		965E14B51C1DB9DE0012EF7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				965E14B61C1DB9DE0012EF7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				965E14BB1C1DB9DE0012EF7A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		965E14BE1C1DB9DE0012EF7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		965E14BF1C1DB9DE0012EF7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		965E14C11C1DB9DE0012EF7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Dumpview",
+					voor,
+					Dumpert.nl,
+				);
+				INFOPLIST_FILE = "Dumpview voor Dumpert.nl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		965E14C21C1DB9DE0012EF7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Dumpview",
+					voor,
+					Dumpert.nl,
+				);
+				INFOPLIST_FILE = "Dumpview voor Dumpert.nl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		965E14A91C1DB9DE0012EF7A /* Build configuration list for PBXProject "Dumpview voor Dumpert.nl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				965E14BE1C1DB9DE0012EF7A /* Debug */,
+				965E14BF1C1DB9DE0012EF7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		965E14C01C1DB9DE0012EF7A /* Build configuration list for PBXNativeTarget "Dumpview voor Dumpert.nl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				965E14C11C1DB9DE0012EF7A /* Debug */,
+				965E14C21C1DB9DE0012EF7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 965E14A61C1DB9DE0012EF7A /* Project object */;
+}
