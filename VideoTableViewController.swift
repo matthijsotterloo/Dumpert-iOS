@@ -27,8 +27,6 @@ class VideoTableViewController: UITableViewController {
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
-        
-        print(DumpertApi.getRecentVideos(25))
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
         
     }
