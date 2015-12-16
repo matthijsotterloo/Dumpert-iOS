@@ -27,7 +27,9 @@ class VideoTableViewController: UITableViewController {
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+        
+        SCLAlertView().showInfo("Important info", subTitle: "Test notification")
         
     }
 
@@ -111,6 +113,7 @@ class VideoTableViewController: UITableViewController {
                     var views = video["views"].element!.text!
                     let kudos = video["kudos"].element!.text!
                     
+                    // If more then 1.000 views switch to K.
                     if(Double(views) >= 10000){
                         views = String(round(Double(views)!/1000.0)/10.0) + "K"
                     }
@@ -119,7 +122,6 @@ class VideoTableViewController: UITableViewController {
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
                     self.tableView.reloadData()
-                    //print(self.videos.count)
                 })
             }
             
