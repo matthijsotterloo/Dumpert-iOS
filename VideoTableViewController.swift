@@ -17,7 +17,7 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(DumpertApi.getRecentVideos(10))
+        print(DumpertApi.getRecentVideos(25))
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
         self.tableView.reloadData()
         
@@ -52,32 +52,54 @@ class VideoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        //let lastSectionIndex: Int = tableView.numberOfSections - 1
+        let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
+        if (indexPath.row == lastRowIndex) {
+        // This is the last cell
+        let video = videos[indexPath.row]
+
+        print(video.id)
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
+        self.tableView.reloadData()
+        }
+    }
+
     func parseVideoXml(data: NSData){
-        
+
         let xml = SWXMLHash.parse(data)
-        
+
         //var videos = [Video]()
         
         for video in xml["videos"]["video"] {
             //print(video["thumb"].element!.text!)
-            Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
-                
-                let id = video["id"].element!.text!
-                let thumb = image
-                let title = video["title"].element!.text!
-                let brief = video["brief"].element!.text!
-                let date = video["date"].element!.text!
-                let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
-                let videoLink = NSURL(string: video["videoLink"].element!.text!)
-                let tags = video["tags"].element!.text!
-                let views = Int(video["views"].element!.text!)!
-                let kudos = Int(video["kudos"].element!.text!)!
-                //print(id)
-                
-                videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
-                self.tableView.reloadData()
-                //print(self.videos.count)
-            })
+            
+            if(!video["nsfw"]){
+                Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
+                    
+                    let id = video["id"].element!.text!
+                    let thumb = image
+                    let title = video["title"].element!.text!
+                    let brief = video["brief"].element!.text!
+                    let date = video["date"].element!.text!
+                    let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
+                    let videoLink = NSURL(string: video["videoLink"].element!.text!)
+                    
+                    var tags = ""
+                    
+                    if(video["tags"]){
+                        tags = video["tags"].element!.text!
+                    }
+                    
+                    let views = Int(video["views"].element!.text!)!
+                    let kudos = Int(video["kudos"].element!.text!)!
+                    
+                    videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
+                    videos.sort { $0.id < $1.id }
+                    self.tableView.reloadData()
+                    //print(self.videos.count)
+                })
+            }
             
         }
     }

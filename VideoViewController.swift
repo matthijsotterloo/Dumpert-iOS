@@ -16,18 +16,20 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let video = videos[selectedVideo] as Video
-        
-        //let url = NSURL(string: "http://media.dumpert.nl/tablet/08cae0c3_Louis_Van_Gaal_X_Factor_audition.mp4.mp4.mp4")
-        let player = AVPlayer(URL: video.videoLink)
-        let playerController = AVPlayerViewController()
-        
-        playerController.player = player
-        self.addChildViewController(playerController)
-        self.view.addSubview(playerController.view)
-        playerController.view.frame = videoView.frame
-        
-        player.play()
+        if(selectedVideo > -1){
+            let video = videos[selectedVideo] as Video
+            
+            //let url = NSURL(string: "http://media.dumpert.nl/tablet/08cae0c3_Louis_Van_Gaal_X_Factor_audition.mp4.mp4.mp4")
+            let player = AVPlayer(URL: video.videoLink)
+            let playerController = AVPlayerViewController()
+            
+            playerController.player = player
+            self.addChildViewController(playerController)
+            self.view.addSubview(playerController.view)
+            playerController.view.frame = videoView.frame
+            
+            player.play()
+        }
         
         
     }
