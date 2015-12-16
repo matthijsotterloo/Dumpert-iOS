@@ -71,7 +71,7 @@ class DumpertApi {
     
     private class func getRecentVideos(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_feeds/getRecentVideos?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRecentVideos?", paramString2: paramString, paramInt: paramInt)
 
     }
     
@@ -95,7 +95,7 @@ class DumpertApi {
     
     private class func getRecentImages(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_feeds/getRecentImages?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRecentImages?", paramString2: paramString, paramInt: paramInt)
         
     }
     
@@ -119,7 +119,7 @@ class DumpertApi {
     
     private class func getTop100(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_feeds/getTop100?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getTop100?", paramString2: paramString, paramInt: paramInt)
         
     }
     
@@ -143,7 +143,7 @@ class DumpertApi {
     
     internal class func getRelated(paramString: String, paramInt: Int) -> String {
     
-        return getItemsUrl("/mobile_feeds/getRelated?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRelated?", paramString2: paramString, paramInt: paramInt)
         
     }
     
@@ -151,7 +151,7 @@ class DumpertApi {
     
     internal class func getItemMetaUrl(paramString: String) -> String {
         
-        return getItemsUrl("/mobile_feeds/getMeta?", paramString2: paramString, paramInt: -1)
+        return getItemsUrl("/mobile_api/getMeta?", paramString2: paramString, paramInt: -1)
         
     }
     

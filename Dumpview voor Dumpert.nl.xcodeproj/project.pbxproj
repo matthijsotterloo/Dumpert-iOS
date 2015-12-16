@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96406AEA1C21D388003E69E2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96406AE91C21D388003E69E2 /* VideoViewController.swift */; };
 		965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */; };
 		965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B31C1DB9DE0012EF7A /* ViewController.swift */; };
 		965E14B71C1DB9DE0012EF7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E14B51C1DB9DE0012EF7A /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96406AE91C21D388003E69E2 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = ../VideoViewController.swift; sourceTree = "<group>"; };
 		965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumpview voor Dumpert.nl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		965E14B31C1DB9DE0012EF7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */,
 				965E14D71C1DF6AE0012EF7A /* Video.swift */,
 				965E14D91C1DF8C90012EF7A /* Image.swift */,
+				96406AE91C21D388003E69E2 /* VideoViewController.swift */,
 				965E14B51C1DB9DE0012EF7A /* Main.storyboard */,
 				965E14B81C1DB9DE0012EF7A /* Assets.xcassets */,
 				965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 			files = (
 				965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */,
 				965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */,
+				96406AEA1C21D388003E69E2 /* VideoViewController.swift in Sources */,
 				965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */,
 				965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */,
 				965E14DF1C1DFA860012EF7A /* VideoTableViewController.swift in Sources */,
@@ -327,6 +331,7 @@
 				965E14C21C1DB9DE0012EF7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

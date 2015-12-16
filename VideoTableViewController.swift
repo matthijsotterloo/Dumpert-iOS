@@ -8,14 +8,17 @@
 
 import UIKit
 
+var selectedVideo: Int = 0
+var videos = [Video]()
+
+
 class VideoTableViewController: UITableViewController {
     
-    var videos = [Video]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //videos = parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(10))!)
+        //print(DumpertApi.getRecentVideos(10))
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
         self.tableView.reloadData()
         
     }
@@ -34,28 +37,29 @@ class VideoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return videos.count
-        return 5
+        return videos.count
+        //return 5
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath)
-        //let video = videos[indexPath.row]
+        let video = videos[indexPath.row]
         
-        //cell.textLabel?.text = video.title
-        cell.textLabel?.text = "test"
+        cell.textLabel?.text = video.title
+        cell.imageView?.image = video.thumb
+        //cell.textLabel?.text = "test"
         
         return cell
     }
     
-    func parseVideoXml(data: NSData) -> [Video] {
+    func parseVideoXml(data: NSData){
         
         let xml = SWXMLHash.parse(data)
         
-        var videos = [Video]()
+        //var videos = [Video]()
         
         for video in xml["videos"]["video"] {
-            print(video["thumb"].element!.text!)
+            //print(video["thumb"].element!.text!)
             Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
                 
                 let id = video["id"].element!.text!
@@ -63,19 +67,19 @@ class VideoTableViewController: UITableViewController {
                 let title = video["title"].element!.text!
                 let brief = video["brief"].element!.text!
                 let date = video["date"].element!.text!
-                let videoLinkLow = video["videoLinkLow"].element!.text!
-                let videoLink = video["videoLink"].element!.text!
+                let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
+                let videoLink = NSURL(string: video["videoLink"].element!.text!)
                 let tags = video["tags"].element!.text!
                 let views = Int(video["views"].element!.text!)!
                 let kudos = Int(video["kudos"].element!.text!)!
-                print(id)
+                //print(id)
                 
-                videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow, videoLink: videoLink, tags: tags, views: views, kudos: kudos))
+                videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
+                self.tableView.reloadData()
+                //print(self.videos.count)
             })
             
         }
-        
-        return videos
     }
 
     /*
@@ -123,14 +127,19 @@ class VideoTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "videoSegue" {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            
+            selectedVideo = indexPath!.row
+            
+            tableView.deselectRowAtIndexPath(indexPath!, animated: true)
+            
+        }
+        
     }
-    */
     
 }

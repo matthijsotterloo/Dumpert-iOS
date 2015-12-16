@@ -16,13 +16,13 @@ class Video {
     var title: String
     var brief: String
     var date: String
-    var videoLinkLow: String
-    var videoLink: String
+    var videoLinkLow: NSURL
+    var videoLink: NSURL
     var tags = [String]()
     var views: Int
     var kudos: Int
     
-    init(id: String, thumb: UIImage, title: String, brief: String, date: String, videoLinkLow: String, videoLink: String, tags: String, views: Int, kudos: Int){
+    init(id: String, thumb: UIImage, title: String, brief: String, date: String, videoLinkLow: NSURL, videoLink: NSURL, tags: String, views: Int, kudos: Int){
         self.id = id
         self.thumb = thumb
         self.title = title

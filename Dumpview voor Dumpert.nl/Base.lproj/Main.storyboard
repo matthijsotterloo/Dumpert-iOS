@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cbI-qh-fGj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2wO-yk-bza">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Video Table View Controller-->
@@ -10,17 +11,20 @@
             <objects>
                 <tableViewController id="cbI-qh-fGj" customClass="VideoTableViewController" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="edU-EM-JCg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="video" id="o4E-ez-Upl">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o4E-ez-Upl" id="ol3-vx-mNp">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="SDV-1c-Wuw" kind="show" identifier="videoSegue" id="4i2-MV-evK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -28,10 +32,85 @@
                             <outlet property="delegate" destination="cbI-qh-fGj" id="EkW-c4-xs8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="YMW-Uj-ahD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKH-bs-Nbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="62"/>
+            <point key="canvasLocation" x="1361" y="46"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="PFv-VR-hj7">
+            <objects>
+                <viewController id="SDV-1c-Wuw" customClass="VideoViewController" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jOe-nY-tef"/>
+                        <viewControllerLayoutGuide type="bottom" id="dtI-yH-Wpv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Khs-wx-h26">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-YD-SZ5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="fNh-Cp-0nE"/>
+                                    <constraint firstAttribute="height" constant="214" id="gTt-WK-Oao"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gTt-WK-Oao"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1I0-YD-SZ5" secondAttribute="trailing" constant="-20" id="AT1-HM-G2X"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="jOe-nY-tef" secondAttribute="bottom" id="D1C-ZZ-50P"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-20" id="JtC-hJ-B3D"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="Khs-wx-h26" secondAttribute="topMargin" id="Xxi-gy-oRR"/>
+                            <constraint firstItem="dtI-yH-Wpv" firstAttribute="top" secondItem="1I0-YD-SZ5" secondAttribute="bottom" id="khd-6X-YzE"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="Khs-wx-h26" secondAttribute="topMargin" id="pZJ-pe-48l"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-20" id="z5x-K0-qbw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xxi-gy-oRR"/>
+                                <exclude reference="pZJ-pe-48l"/>
+                                <exclude reference="z5x-K0-qbw"/>
+                                <exclude reference="khd-6X-YzE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="videoView" destination="1I0-YD-SZ5" id="kPl-IJ-tKV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="urE-o0-SmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="46"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ume-Eu-k0D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2wO-yk-bza" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IAt-Gc-aq9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cbI-qh-fGj" kind="relationship" relationship="rootViewController" id="1sP-2w-dMZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOr-oZ-uzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="46"/>
         </scene>
     </scenes>
 </document>
