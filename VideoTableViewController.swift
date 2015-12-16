@@ -17,6 +17,7 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        let alertView = SCLAlertView()
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
@@ -27,9 +28,17 @@ class VideoTableViewController: UITableViewController {
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
-        
-        SCLAlertView().showInfo("Important info", subTitle: "Test notification")
+        // Check if there's an working internet connection
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection available")
+            //Parse 30 new video's
+            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+        } else {
+            // Show alert.
+            print("No internet connection available")
+            alertView.showCloseButton = false
+            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+        }
         
     }
 

@@ -1,5 +1,13 @@
 //
 //  SCLAlertView.swift
+//  Dumpview voor Dumpert.nl
+//
+//  Created by Matthijs Otterloo on 16/12/15.
+//  Copyright © 2015 Joep de Jong. All rights reserved.
+//
+
+//
+//  SCLAlertView.swift
 //  SCLAlertView Example
 //
 //  Created by Viktor Radchenko on 6/5/14.
