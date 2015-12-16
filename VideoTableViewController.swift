@@ -17,9 +17,19 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "video")
+        tableView.rowHeight = 75
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "Logo.png")
+        self.navigationItem.titleView = imageView
+        
+        
         print(DumpertApi.getRecentVideos(25))
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
-        self.tableView.reloadData()
         
     }
 
@@ -42,12 +52,15 @@ class VideoTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath)
+        let cell: TableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! TableViewCell
         let video = videos[indexPath.row]
         
-        cell.textLabel?.text = video.title
-        cell.imageView?.image = video.thumb
-        //cell.textLabel?.text = "test"
+        //cell.textLabel?.text = video.title
+        //cell.imageView?.image = video.thumb
+        cell.thumb?.image = video.thumb
+        cell.title?.text = video.title
+        cell.views.text = video.views
+        cell.kudos.text = video.kudos
         
         return cell
     }
@@ -63,6 +76,12 @@ class VideoTableViewController: UITableViewController {
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
         self.tableView.reloadData()
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.performSegueWithIdentifier("videoSegue", sender: self)
+        
     }
 
     func parseVideoXml(data: NSData){
@@ -91,8 +110,13 @@ class VideoTableViewController: UITableViewController {
                         tags = video["tags"].element!.text!
                     }
                     
-                    let views = Int(video["views"].element!.text!)!
-                    let kudos = Int(video["kudos"].element!.text!)!
+                    var views = video["views"].element!.text!
+                    let kudos = video["kudos"].element!.text!
+                    
+                    if(Double(views) >= 10000){
+                        views = String(round(Double(views)!/1000.0)/10.0) + "K"
+                    }
+                    
                     
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
