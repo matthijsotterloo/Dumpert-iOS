@@ -48,6 +48,7 @@ class VideoTableViewController: UITableViewController {
     
     func refreshVideos(sender:AnyObject)
     {
+        videos.removeAll()
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
