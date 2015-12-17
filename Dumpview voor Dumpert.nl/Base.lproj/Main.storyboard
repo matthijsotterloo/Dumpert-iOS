@@ -51,62 +51,6 @@
             </objects>
             <point key="canvasLocation" x="1369" y="46"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="HRy-O2-TdC">
-            <objects>
-                <viewController id="mtX-iS-jdH" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WdO-NA-1Ss"/>
-                        <viewControllerLayoutGuide type="bottom" id="22s-bW-FJv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4yt-eB-jmg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MJC-7P-jMb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DwX-9q-Y7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1770" y="-657"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="7wB-xs-ffI">
-            <objects>
-                <viewController id="jRV-Wl-AnQ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sth-m5-93N"/>
-                        <viewControllerLayoutGuide type="bottom" id="aix-nq-uAG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r2g-1C-dm1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="pj8-aY-WfV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1FL-hm-fNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1742" y="-1053"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="dDG-RY-0pn">
-            <objects>
-                <tabBarController id="6eS-Ci-LWS" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="tgO-Da-h1B">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="jRV-Wl-AnQ" kind="relationship" relationship="viewControllers" id="QVj-rO-lL0"/>
-                        <segue destination="mtX-iS-jdH" kind="relationship" relationship="viewControllers" id="f52-VW-RHt"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kGa-6w-KeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="922" y="-724"/>
-        </scene>
         <!--Video View Controller-->
         <scene sceneID="PFv-VR-hj7">
             <objects>
