@@ -35,6 +35,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="YMW-Uj-ahD"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="czc-ID-KgT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Nieuwe videos laden...">
+                                <attributes>
+                                    <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKH-bs-Nbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,8 +257,6 @@
                                 <exclude reference="brG-RM-Z2I"/>
                                 <exclude reference="huT-RB-NTF"/>
                                 <exclude reference="zqB-OA-hN5"/>
-                                <exclude reference="5M6-Rw-tW7"/>
-                                <exclude reference="vHV-OJ-ZJy"/>
                                 <exclude reference="2Cc-YC-Plg"/>
                                 <exclude reference="3ch-07-Q9B"/>
                                 <exclude reference="AFT-V5-anm"/>
@@ -257,6 +266,8 @@
                                 <exclude reference="eBe-Ud-OmW"/>
                                 <exclude reference="l2i-rq-Nb1"/>
                                 <exclude reference="z9N-hY-MCs"/>
+                                <exclude reference="5M6-Rw-tW7"/>
+                                <exclude reference="vHV-OJ-ZJy"/>
                                 <exclude reference="UNG-OU-n21"/>
                                 <exclude reference="ffe-oK-r5N"/>
                                 <exclude reference="Xwn-FB-nkK"/>

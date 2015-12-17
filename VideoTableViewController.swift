@@ -23,10 +23,14 @@ class VideoTableViewController: UITableViewController {
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
         tableView.rowHeight = 75
         
+        //Initialize header view (dumpert logo)
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
+        
+        //Bind pull to refresh to function 
+        self.refreshControl?.addTarget(self, action: "refreshVideos:", forControlEvents: UIControlEvents.ValueChanged)
         
         // Check if there's an working internet connection
         if Reachability.isConnectedToNetwork() == true {
@@ -40,6 +44,13 @@ class VideoTableViewController: UITableViewController {
             alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
         }
         
+    }
+    
+    func refreshVideos(sender:AnyObject)
+    {
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
