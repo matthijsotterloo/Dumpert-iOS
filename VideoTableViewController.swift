@@ -17,6 +17,7 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        let alertView = SCLAlertView()
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
@@ -27,9 +28,17 @@ class VideoTableViewController: UITableViewController {
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
-        
-        print(DumpertApi.getRecentVideos(25))
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(15))!)
+        // Check if there's an working internet connection
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection available")
+            //Parse 30 new video's
+            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+        } else {
+            // Show alert.
+            print("No internet connection available")
+            alertView.showCloseButton = false
+            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+        }
         
     }
 
@@ -113,6 +122,7 @@ class VideoTableViewController: UITableViewController {
                     var views = video["views"].element!.text!
                     let kudos = video["kudos"].element!.text!
                     
+                    // If more then 1.000 views switch to K.
                     if(Double(views) >= 10000){
                         views = String(round(Double(views)!/1000.0)/10.0) + "K"
                     }
@@ -121,7 +131,6 @@ class VideoTableViewController: UITableViewController {
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
                     self.tableView.reloadData()
-                    //print(self.videos.count)
                 })
             }
             
@@ -184,8 +193,12 @@ class VideoTableViewController: UITableViewController {
             
             tableView.deselectRowAtIndexPath(indexPath!, animated: true)
             
+            //Custom back button text
+            let backItem = UIBarButtonItem()
+            backItem.title = "Terug"
+            navigationItem.backBarButtonItem = backItem
+            
         }
         
     }
-    
 }

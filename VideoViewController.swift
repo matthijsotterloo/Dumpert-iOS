@@ -12,9 +12,20 @@ import AVFoundation
 
 class VideoViewController: UIViewController {
     @IBOutlet var videoView: UIView!
+    @IBOutlet var kudos: UILabel!
+    @IBOutlet var views: UILabel!
+    @IBOutlet var name:  UILabel!
+    @IBOutlet var brief:  UILabel!
+    @IBOutlet var tags:  UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set Dumpert logo in headaer
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "Logo.png")
+        self.navigationItem.titleView = imageView
         
         if(selectedVideo > -1){
             let video = videos[selectedVideo] as Video
@@ -23,11 +34,17 @@ class VideoViewController: UIViewController {
             let player = AVPlayer(URL: video.videoLink)
             let playerController = AVPlayerViewController()
             
+            name?.text  = video.title
+            views.text  = video.views
+            kudos.text  = video.kudos
+            brief?.text = video.brief
+            
             playerController.player = player
             self.addChildViewController(playerController)
             self.view.addSubview(playerController.view)
             playerController.view.frame = videoView.frame
             
+            //Automatically play video
             player.play()
         }
         
