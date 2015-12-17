@@ -17,33 +17,65 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let alertView = SCLAlertView()
+        let reachability: Reachability
+        
+        //Initialize reachability
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
         tableView.rowHeight = 75
         
-        //Initialize header view (dumpert logo)
+        //Add dumpert logo to header view
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
-        //Bind pull to refresh to function 
+        //Bind pull to refresh to action
         self.refreshControl?.addTarget(self, action: "refreshVideos:", forControlEvents: UIControlEvents.ValueChanged)
         
-        // Check if there's an working internet connection
-        if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection available")
-            //Parse 30 new video's
-            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
-        } else {
-            // Show alert.
-            print("No internet connection available")
-            alertView.showCloseButton = false
-            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+        // Check for connection
+        reachability.whenReachable = { reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+                if reachability.isReachableViaWiFi() {
+                    print("Connected via WiFi")
+                    //Clear old videos from table and load new one
+                    videos.removeAll()
+                    self.parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+                    self.tableView.reloadData()
+                } else {
+                    print("Connected via Cellular")
+                    //Clear old videos from table and load new one
+                    videos.removeAll()
+                    self.parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+                    self.tableView.reloadData()
+                }
+            }
         }
         
+        // When no network connection
+        reachability.whenUnreachable = { reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+                print("No internet connection available")
+                alertView.showCloseButton = false
+                alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+            }
+        }
+        
+        //Start notifier !IMPORTANT
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
     
     func refreshVideos(sender:AnyObject)
@@ -149,54 +181,9 @@ class VideoTableViewController: UITableViewController {
         }
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //Prepare for segue to detail view controller
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "videoSegue" {
             let indexPath = self.tableView.indexPathForSelectedRow
@@ -209,7 +196,6 @@ class VideoTableViewController: UITableViewController {
             let backItem = UIBarButtonItem()
             backItem.title = "Terug"
             navigationItem.backBarButtonItem = backItem
-            
         }
         
     }
