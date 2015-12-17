@@ -66,7 +66,7 @@ class VideoTableViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 print("No internet connection available")
                 alertView.showCloseButton = false
-                alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+                alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van DumpertViewer is een internet verbinding vereist.")
             }
         }
         
