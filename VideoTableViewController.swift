@@ -193,8 +193,12 @@ class VideoTableViewController: UITableViewController {
             
             tableView.deselectRowAtIndexPath(indexPath!, animated: true)
             
+            //Custom back button text
+            let backItem = UIBarButtonItem()
+            backItem.title = "Terug"
+            navigationItem.backBarButtonItem = backItem
+            
         }
         
     }
-    
 }

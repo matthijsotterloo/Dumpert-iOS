@@ -15,10 +15,13 @@ class VideoViewController: UIViewController {
     @IBOutlet var kudos: UILabel!
     @IBOutlet var views: UILabel!
     @IBOutlet var name:  UILabel!
+    @IBOutlet var brief:  UILabel!
+    @IBOutlet var tags:  UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set Dumpert logo in headaer
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
@@ -31,9 +34,10 @@ class VideoViewController: UIViewController {
             let player = AVPlayer(URL: video.videoLink)
             let playerController = AVPlayerViewController()
             
-            name?.text = video.title
-            views.text = video.views
-            kudos.text = video.kudos
+            name?.text  = video.title
+            views.text  = video.views
+            kudos.text  = video.kudos
+            brief?.text = video.brief
             
             playerController.player = player
             self.addChildViewController(playerController)
