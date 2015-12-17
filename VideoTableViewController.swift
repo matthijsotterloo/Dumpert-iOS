@@ -31,7 +31,7 @@ class VideoTableViewController: UITableViewController {
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
-        tableView.rowHeight = 75
+        tableView.rowHeight = 150
         
         //Add dumpert logo to header view
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
@@ -48,15 +48,11 @@ class VideoTableViewController: UITableViewController {
                 if reachability.isReachableViaWiFi() {
                     print("Connected via WiFi")
                     //Clear old videos from table and load new one
-                    videos.removeAll()
-                    self.parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
-                    self.tableView.reloadData()
+                    self.newVideos()
                 } else {
                     print("Connected via Cellular")
                     //Clear old videos from table and load new one
-                    videos.removeAll()
-                    self.parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
-                    self.tableView.reloadData()
+                    self.newVideos()
                 }
             }
         }
@@ -78,12 +74,17 @@ class VideoTableViewController: UITableViewController {
         }
     }
     
-    func refreshVideos(sender:AnyObject)
-    {
+    func refreshVideos(sender:AnyObject) {
         videos.removeAll()
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
+    }
+    
+    func newVideos() {
+        videos.removeAll()
+        self.parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
