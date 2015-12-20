@@ -36,7 +36,7 @@
 		965E14BB1C1DB9DE0012EF7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		965E14BD1C1DB9DE0012EF7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpertApi.swift; sourceTree = "<group>"; };
-		965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dumpview voor Dumpert.nl-Bridging-Header.h"; sourceTree = "<group>"; };
+		965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dumpview voor Dumpert.nl-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		965E14D71C1DF6AE0012EF7A /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		965E14D91C1DF8C90012EF7A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -65,7 +65,6 @@
 			children = (
 				965E14B01C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */,
 				965E14AF1C1DB9DE0012EF7A /* Products */,
-				965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,26 +79,59 @@
 		965E14B01C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl */ = {
 			isa = PBXGroup;
 			children = (
-				AD32B39F1C26E601009CD957 /* AvenirNextLTPro-Bold.otf */,
-				AD32B3A01C26E601009CD957 /* Gotham-Book.ttf */,
 				965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */,
+				AD32B3A31C26E62A009CD957 /* Controllers */,
+				AD32B3A41C26E63A009CD957 /* Dumpert */,
+				AD32B3A51C26E643009CD957 /* Storyboards */,
+				AD32B3A61C26E649009CD957 /* Fonts */,
+				965E14B81C1DB9DE0012EF7A /* Assets.xcassets */,
+				965E14BD1C1DB9DE0012EF7A /* Info.plist */,
+				965E14CA1C1DBED40012EF7A /* Dumpview voor Dumpert.nl-Bridging-Header.h */,
+			);
+			path = "Dumpview voor Dumpert.nl";
+			sourceTree = "<group>";
+		};
+		AD32B3A31C26E62A009CD957 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				965E14B31C1DB9DE0012EF7A /* ViewController.swift */,
 				AD32B3991C26E5B2009CD957 /* VideoTableViewController.swift */,
+				AD32B39B1C26E5BD009CD957 /* VideoViewController.swift */,
+				96406AF11C21F707003E69E2 /* TableViewCell.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AD32B3A41C26E63A009CD957 /* Dumpert */ = {
+			isa = PBXGroup;
+			children = (
 				965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */,
 				965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */,
 				96E539591C232AA400EB35D3 /* Comment.swift */,
 				965E14D71C1DF6AE0012EF7A /* Video.swift */,
 				965E14D91C1DF8C90012EF7A /* Image.swift */,
-				AD32B39B1C26E5BD009CD957 /* VideoViewController.swift */,
-				96406AF11C21F707003E69E2 /* TableViewCell.swift */,
+			);
+			name = Dumpert;
+			sourceTree = "<group>";
+		};
+		AD32B3A51C26E643009CD957 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
 				965E14B51C1DB9DE0012EF7A /* Main.storyboard */,
 				96BCA5FD1C2415F400EC1E6D /* TableViewCell.xib */,
 				AD32B39D1C26E5CD009CD957 /* VideoTableViewCell.xib */,
-				965E14B81C1DB9DE0012EF7A /* Assets.xcassets */,
 				965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */,
-				965E14BD1C1DB9DE0012EF7A /* Info.plist */,
 			);
-			path = "Dumpview voor Dumpert.nl";
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		AD32B3A61C26E649009CD957 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AD32B39F1C26E601009CD957 /* AvenirNextLTPro-Bold.otf */,
+				AD32B3A01C26E601009CD957 /* Gotham-Book.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
