@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2wO-yk-bza">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2wO-yk-bza">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -9,18 +9,20 @@
         <!--Video Table View Controller-->
         <scene sceneID="FUT-hb-EMa">
             <objects>
-                <tableViewController id="cbI-qh-fGj" customClass="VideoTableViewController" customModule="DumpView" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cbI-qh-fGj" customClass="VideoTableViewController" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="edU-EM-JCg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="video" id="o4E-ez-Upl" customClass="TableViewCell" customModule="DumpView" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="video" id="o4E-ez-Upl" customClass="VideoTableViewCell" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o4E-ez-Upl" id="ol3-vx-mNp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="SDV-1c-Wuw" kind="show" identifier="videoSegue" id="4i2-MV-evK"/>
@@ -40,66 +42,10 @@
             </objects>
             <point key="canvasLocation" x="1369" y="46"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="HRy-O2-TdC">
-            <objects>
-                <viewController id="mtX-iS-jdH" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WdO-NA-1Ss"/>
-                        <viewControllerLayoutGuide type="bottom" id="22s-bW-FJv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4yt-eB-jmg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MJC-7P-jMb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DwX-9q-Y7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1770" y="-657"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="7wB-xs-ffI">
-            <objects>
-                <viewController id="jRV-Wl-AnQ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sth-m5-93N"/>
-                        <viewControllerLayoutGuide type="bottom" id="aix-nq-uAG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r2g-1C-dm1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="pj8-aY-WfV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1FL-hm-fNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1742" y="-1053"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="dDG-RY-0pn">
-            <objects>
-                <tabBarController id="6eS-Ci-LWS" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="tgO-Da-h1B">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="jRV-Wl-AnQ" kind="relationship" relationship="viewControllers" id="QVj-rO-lL0"/>
-                        <segue destination="mtX-iS-jdH" kind="relationship" relationship="viewControllers" id="f52-VW-RHt"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kGa-6w-KeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="922" y="-724"/>
-        </scene>
         <!--Video View Controller-->
         <scene sceneID="PFv-VR-hj7">
             <objects>
-                <viewController id="SDV-1c-Wuw" customClass="VideoViewController" customModule="DumpView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SDV-1c-Wuw" customClass="VideoViewController" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jOe-nY-tef"/>
                         <viewControllerLayoutGuide type="bottom" id="dtI-yH-Wpv"/>
@@ -108,10 +54,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-YD-SZ5">
-                                <rect key="frame" x="0.0" y="64" width="380" height="214"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-YD-SZ5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="dOO-5b-Efk"/>
                                     <constraint firstAttribute="height" constant="214" id="fNh-Cp-0nE"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="214" id="fUU-Jq-gT7"/>
                                     <constraint firstAttribute="height" constant="214" id="gTt-WK-Oao"/>
@@ -120,7 +67,9 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="fNh-Cp-0nE"/>
+                                        <exclude reference="fUU-Jq-gT7"/>
                                         <exclude reference="gTt-WK-Oao"/>
+                                        <exclude reference="vBs-YM-IgP"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -152,8 +101,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Video titel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39W-H6-new">
-                                <rect key="frame" x="28" y="286" width="281" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dit is een omschrijving van de video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-qt-mFU">
+                                <rect key="frame" x="28" y="332" width="281" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="6zA-Ow-3bd"/>
+                                    <constraint firstAttribute="width" constant="281" id="Qhw-7X-hBd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Video titel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39W-H6-new">
+                                <rect key="frame" x="12" y="280" width="296" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="8ZR-rf-OS2"/>
                                     <constraint firstAttribute="width" constant="281" id="jYY-Pm-DZB"/>
@@ -165,21 +124,14 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8ZR-rf-OS2"/>
+                                        <exclude reference="jYY-Pm-DZB"/>
+                                        <exclude reference="s2M-Zv-Quw"/>
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dit is een omschrijving van de video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-qt-mFU">
-                                <rect key="frame" x="28" y="332" width="281" height="101"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="6zA-Ow-3bd"/>
-                                    <constraint firstAttribute="width" constant="281" id="Qhw-7X-hBd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.36862745099999999" green="0.69411764710000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eLK-qt-mFU" firstAttribute="top" secondItem="bnT-mq-SQc" secondAttribute="bottom" constant="-21" id="2Cc-YC-Plg"/>
                             <constraint firstItem="39W-H6-new" firstAttribute="leading" secondItem="vMV-ZQ-LV0" secondAttribute="leading" id="3by-oD-QVV"/>
@@ -197,10 +149,14 @@
                             <constraint firstItem="eLK-qt-mFU" firstAttribute="trailing" secondItem="39W-H6-new" secondAttribute="trailing" id="KOn-X2-ImF"/>
                             <constraint firstItem="bnT-mq-SQc" firstAttribute="leading" secondItem="D0v-mU-Bib" secondAttribute="trailing" constant="8" id="LDa-lf-ZPP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eLK-qt-mFU" secondAttribute="trailing" constant="-9" id="Rrd-nf-kTX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1I0-YD-SZ5" secondAttribute="trailing" constant="-20" id="Sng-8M-Zt0"/>
                             <constraint firstItem="Co7-qP-Wda" firstAttribute="top" secondItem="1I0-YD-SZ5" secondAttribute="bottom" constant="54" id="UFR-g3-oYR"/>
                             <constraint firstItem="D0v-mU-Bib" firstAttribute="baseline" secondItem="bnT-mq-SQc" secondAttribute="baseline" id="UNG-OU-n21"/>
                             <constraint firstItem="1I0-YD-SZ5" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-20" id="UrL-bq-yZP"/>
                             <constraint firstItem="eLK-qt-mFU" firstAttribute="top" secondItem="39W-H6-new" secondAttribute="bottom" constant="29" id="Vn6-Sa-S7k"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="jOe-nY-tef" secondAttribute="bottom" id="WWH-rn-tiA"/>
+                            <constraint firstItem="1I0-YD-SZ5" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-20" id="X9S-qy-LYG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="39W-H6-new" secondAttribute="trailing" constant="-8" id="XiJ-04-6VT"/>
                             <constraint firstItem="bnT-mq-SQc" firstAttribute="leading" secondItem="D0v-mU-Bib" secondAttribute="trailing" constant="8" symbolic="YES" id="Xwn-FB-nkK"/>
                             <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="Khs-wx-h26" secondAttribute="topMargin" id="Xxi-gy-oRR"/>
                             <constraint firstItem="vMV-ZQ-LV0" firstAttribute="top" secondItem="1I0-YD-SZ5" secondAttribute="bottom" constant="54" id="YHC-55-BXX"/>
@@ -221,6 +177,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="39W-H6-new" secondAttribute="trailing" constant="-9" id="mK2-OG-STL"/>
                             <constraint firstItem="1I0-YD-SZ5" firstAttribute="top" secondItem="Khs-wx-h26" secondAttribute="topMargin" id="pZJ-pe-48l"/>
                             <constraint firstItem="Co7-qP-Wda" firstAttribute="top" secondItem="1I0-YD-SZ5" secondAttribute="bottom" constant="54" id="pa6-ZA-WG1"/>
+                            <constraint firstItem="39W-H6-new" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-8" id="rnM-4w-oUe"/>
                             <constraint firstItem="39W-H6-new" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="8" id="t7K-8z-Ruy"/>
                             <constraint firstItem="eLK-qt-mFU" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="8" id="tvo-KE-mi6"/>
                             <constraint firstItem="Co7-qP-Wda" firstAttribute="baseline" secondItem="D0v-mU-Bib" secondAttribute="baseline" id="vHV-OJ-ZJy"/>
@@ -228,6 +185,7 @@
                             <constraint firstItem="D0v-mU-Bib" firstAttribute="leading" secondItem="Co7-qP-Wda" secondAttribute="trailing" constant="47" id="wCQ-V9-7Un"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bnT-mq-SQc" secondAttribute="trailing" constant="28" id="xYI-oq-CBB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1I0-YD-SZ5" secondAttribute="trailing" constant="-50" id="xo7-Iy-Y0w"/>
+                            <constraint firstItem="39W-H6-new" firstAttribute="top" secondItem="1I0-YD-SZ5" secondAttribute="bottom" constant="2" id="yNU-V6-rkP"/>
                             <constraint firstItem="1I0-YD-SZ5" firstAttribute="leading" secondItem="Khs-wx-h26" secondAttribute="leadingMargin" constant="-20" id="z5x-K0-qbw"/>
                             <constraint firstItem="eLK-qt-mFU" firstAttribute="top" secondItem="vMV-ZQ-LV0" secondAttribute="bottom" constant="-21" id="z9N-hY-MCs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="39W-H6-new" secondAttribute="trailing" constant="-5" id="zqB-OA-hN5"/>
@@ -239,15 +197,17 @@
                                 <exclude reference="JtC-hJ-B3D"/>
                                 <exclude reference="UrL-bq-yZP"/>
                                 <exclude reference="Xxi-gy-oRR"/>
+                                <exclude reference="fLh-y9-K77"/>
                                 <exclude reference="pZJ-pe-48l"/>
                                 <exclude reference="xo7-Iy-Y0w"/>
                                 <exclude reference="z5x-K0-qbw"/>
                                 <exclude reference="3by-oD-QVV"/>
+                                <exclude reference="ZEd-yw-Yxf"/>
                                 <exclude reference="brG-RM-Z2I"/>
                                 <exclude reference="huT-RB-NTF"/>
+                                <exclude reference="mK2-OG-STL"/>
+                                <exclude reference="t7K-8z-Ruy"/>
                                 <exclude reference="zqB-OA-hN5"/>
-                                <exclude reference="5M6-Rw-tW7"/>
-                                <exclude reference="vHV-OJ-ZJy"/>
                                 <exclude reference="2Cc-YC-Plg"/>
                                 <exclude reference="3ch-07-Q9B"/>
                                 <exclude reference="AFT-V5-anm"/>
@@ -257,8 +217,15 @@
                                 <exclude reference="eBe-Ud-OmW"/>
                                 <exclude reference="l2i-rq-Nb1"/>
                                 <exclude reference="z9N-hY-MCs"/>
+                                <exclude reference="YHC-55-BXX"/>
+                                <exclude reference="5M6-Rw-tW7"/>
+                                <exclude reference="UFR-g3-oYR"/>
+                                <exclude reference="pa6-ZA-WG1"/>
+                                <exclude reference="vHV-OJ-ZJy"/>
                                 <exclude reference="UNG-OU-n21"/>
+                                <exclude reference="efk-ov-ztc"/>
                                 <exclude reference="ffe-oK-r5N"/>
+                                <exclude reference="9d1-fq-t1K"/>
                                 <exclude reference="Xwn-FB-nkK"/>
                                 <exclude reference="cvE-P4-g8C"/>
                                 <exclude reference="khd-6X-YzE"/>

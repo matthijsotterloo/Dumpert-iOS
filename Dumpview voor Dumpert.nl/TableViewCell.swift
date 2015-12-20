@@ -27,3 +27,23 @@ class TableViewCell: UITableViewCell {
     }
 
 }
+
+class VideoTableViewCell: UITableViewCell {
+    @IBOutlet var kudos: UILabel!
+    @IBOutlet var views: UILabel!
+    @IBOutlet var title: UILabel!
+    @IBOutlet var thumb: UIImageView!
+    
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}

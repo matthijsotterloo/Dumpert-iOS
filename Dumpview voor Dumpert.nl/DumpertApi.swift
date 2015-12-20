@@ -158,4 +158,32 @@ class DumpertApi {
     internal class func getXML(urlToRequest: String) -> NSData? {
         return NSData(contentsOfURL: NSURL(string: urlToRequest)!)!
     }
+    
+    //Get Comments
+    internal class func getComments(paramString: String) -> String {
+        
+        return "http://www.geenstijl.nl/mobile_feeds_dump/comments/?articleId=" + paramString + "&maxItems=all"
+        
+    }
+    
+    internal class func parseComments(paramString: String) -> [Comment] {
+        
+        let xml = SWXMLHash.parse(getXML(paramString)!)
+        
+        var comments = [Comment]()
+        
+        if(xml["comments"]){
+            for comment in xml["comments"]["comment"] {
+                
+                let id = comment["id"].element!.text!
+                let text = comment["text"].element!.text!
+                let author = comment["author"].element!.text!
+                
+                comments.append(Comment(id: id, text: text, author: author))
+            }
+    
+        }
+        return comments
+    
+    }
 }

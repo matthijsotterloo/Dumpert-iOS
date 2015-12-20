@@ -21,11 +21,13 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Set Dumpert logo in headaer
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
+        navigationController?.navigationBar.tintColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
         
         if(selectedVideo > -1){
             let video = videos[selectedVideo] as Video

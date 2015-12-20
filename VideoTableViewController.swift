@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
 var selectedVideo: Int = 0
 var videos = [Video]()
+let videoAmount: Int = 10
 
 
 class VideoTableViewController: UITableViewController {
@@ -17,11 +19,12 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        let alertView = SCLAlertView()
+        //let alertView = SCLAlertView()
         
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        let nib = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
-        tableView.rowHeight = 75
+        tableView.rowHeight = 120
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
@@ -29,16 +32,17 @@ class VideoTableViewController: UITableViewController {
         self.navigationItem.titleView = imageView
         
         // Check if there's an working internet connection
-        if Reachability.isConnectedToNetwork() == true {
+        //if Reachability.isConnectedToNetwork() == true {
             print("Internet connection available")
             //Parse 30 new video's
-            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(30))!)
-        } else {
-            // Show alert.
-            print("No internet connection available")
-            alertView.showCloseButton = false
-            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
-        }
+            print(DumpertApi.getRecentVideos(videoAmount))
+            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+//        } else {
+//            // Show alert.
+//            print("No internet connection available")
+//            alertView.showCloseButton = false
+//            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+//        }
         
     }
 
@@ -61,29 +65,40 @@ class VideoTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: TableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! TableViewCell
+        let cell: VideoTableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! VideoTableViewCell
         let video = videos[indexPath.row]
         
         //cell.textLabel?.text = video.title
         //cell.imageView?.image = video.thumb
         cell.thumb?.image = video.thumb
         cell.title?.text = video.title
-        cell.views.text = video.views
-        cell.kudos.text = video.kudos
+        cell.views?.text = video.views
+        //print(video.kudos)
+        cell.kudos?.text = video.kudos
+        if video.kudos.rangeOfString("-") != nil {
+            cell.kudos?.textColor = UIColor.redColor()
+        } else {
+            cell.kudos?.textColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         //let lastSectionIndex: Int = tableView.numberOfSections - 1
-        let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
-        if (indexPath.row == lastRowIndex) {
-        // This is the last cell
-        let video = videos[indexPath.row]
+        //print(videos.count)
+        //print(videoAmount)
+        if(videos.count >= videoAmount - 1){
+            let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
+            if (indexPath.row == lastRowIndex) {
+                // This is the last cell
+                let video = videos[indexPath.row]
 
-        print(video.id)
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
-        self.tableView.reloadData()
+                print(video.id)
+                parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -126,7 +141,6 @@ class VideoTableViewController: UITableViewController {
                     if(Double(views) >= 10000){
                         views = String(round(Double(views)!/1000.0)/10.0) + "K"
                     }
-                    
                     
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
@@ -195,8 +209,11 @@ class VideoTableViewController: UITableViewController {
             
             //Custom back button text
             let backItem = UIBarButtonItem()
-            backItem.title = "Terug"
+            backItem.title = "Video's"
+            //backItem.
+            
             navigationItem.backBarButtonItem = backItem
+            
             
         }
         
