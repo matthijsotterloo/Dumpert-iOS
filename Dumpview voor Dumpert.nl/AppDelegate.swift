@@ -23,6 +23,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         
     }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        if let currentVC = getCurrentViewController(self.window?.rootViewController){
+            
+            //VideoVC is the name of your class that should support landscape
+            if currentVC.isKindOfClass( NSClassFromString("AVFullScreenViewController").self!){
+                
+                //return Int(UIInterfaceOrientationMask.All.rawValue)
+                return [.AllButUpsideDown]
+            }
+        }
+        return [.Portrait]
+    }
+    
+    func getCurrentViewController(viewController:UIViewController?)-> UIViewController?{
+        
+        if let tabBarController = viewController as? UITabBarController{
+            
+            return getCurrentViewController(tabBarController.selectedViewController)
+        }
+        
+        if let navigationController = viewController as? UINavigationController{
+            return getCurrentViewController(navigationController.visibleViewController)
+        }
+        
+        if let viewController = viewController?.presentedViewController {
+            
+            return getCurrentViewController(viewController)
+            
+        }else{
+            
+            return viewController
+        }
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

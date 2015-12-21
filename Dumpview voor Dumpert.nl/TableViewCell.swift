@@ -32,6 +32,7 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet var kudos: UILabel!
     @IBOutlet var views: UILabel!
     @IBOutlet var title: UILabel!
+    @IBOutlet var date: UILabel!
     @IBOutlet var thumb: UIImageView!
     
     

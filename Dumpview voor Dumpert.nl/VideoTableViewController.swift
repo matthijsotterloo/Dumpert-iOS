@@ -12,6 +12,7 @@ import Foundation
 var selectedVideo: Int = 0
 var videos = [Video]()
 let videoAmount: Int = 10
+var videoCount: Int = 0
 
 
 class VideoTableViewController: UITableViewController {
@@ -19,16 +20,37 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let alertView = SCLAlertView()
         
         let nib = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
         tableView.rowHeight = 120
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        //Parse 30 new video's
-        print(DumpertApi.getRecentVideos(videoAmount))
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "Logo.png")
+        self.navigationItem.titleView = imageView
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        // Check if there's an working internet connection
+        //if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection available")
+            //Parse 30 new video's
+            print(DumpertApi.getRecentVideos(videoAmount))
+           // parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+//        } else {
+//            // Show alert.
+//            print("No internet connection available")
+//            alertView.showCloseButton = false
+//            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
+//        }
+        
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,41 +70,40 @@ class VideoTableViewController: UITableViewController {
         //return 5
     }
     
+    func refresh(sender:AnyObject)
+    {
+        videoCount = 0
+        videos.removeAll()
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+        self.refreshControl!.endRefreshing()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! VideoTableViewCell
         let video = videos[indexPath.row]
         
-        //cell.textLabel?.text = video.title
-        //cell.imageView?.image = video.thumb
         cell.thumb?.image = video.thumb
-        cell.title?.text = video.title.uppercaseString
-        
+        cell.title?.text = video.title
         cell.views?.text = video.views
+        cell.date?.text = video.date
         cell.kudos?.text = video.kudos
         
-        // Change color for kudos
         if video.kudos.rangeOfString("-") != nil {
             cell.kudos?.textColor = UIColor.redColor()
         } else {
             cell.kudos?.textColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
         }
         
-        // Set font family for cells
-        cell.title?.font = UIFont(name: "AvenirNextLTPro-Bold", size: 15)!
-        cell.kudos?.font = UIFont(name: "AvenirNextLTPro-Bold", size: 13)!
-        cell.views?.font = UIFont(name: "AvenirNextLTPro-Bold", size: 13)!
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(videos.count >= videoAmount - 1){
+        
+        if(videos.count >= videoCount){
             let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
             if (indexPath.row == lastRowIndex) {
                 // This is the last cell
                 let video = videos[indexPath.row]
-
-                print(video.id)
                 parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
                 self.tableView.reloadData()
             }
@@ -94,7 +115,7 @@ class VideoTableViewController: UITableViewController {
         self.performSegueWithIdentifier("videoSegue", sender: self)
         
     }
-
+    
     func parseVideoXml(data: NSData){
 
         let xml = SWXMLHash.parse(data)
@@ -111,7 +132,7 @@ class VideoTableViewController: UITableViewController {
                     let thumb = image
                     let title = video["title"].element!.text!
                     let brief = video["brief"].element!.text!
-                    let date = video["date"].element!.text!
+                    let date = Functions.convertDateFormater(video["date"].element!.text!)
                     let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
                     let videoLink = NSURL(string: video["videoLink"].element!.text!)
                     
@@ -129,8 +150,10 @@ class VideoTableViewController: UITableViewController {
                         views = String(round(Double(views)!/1000.0)/10.0) + "K"
                     }
                     
+                    videoCount++
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
+                    
                     self.tableView.reloadData()
                 })
             }
@@ -199,24 +222,10 @@ class VideoTableViewController: UITableViewController {
             backItem.title = "Video's"
             //backItem.
             
-            self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()            
             navigationItem.backBarButtonItem = backItem
             
             
         }
         
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        let nav = self.navigationController?.navigationBar
-        let attributes = [
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "AvenirNextLTPro-Bold", size: 30)!
-        ]
-        
-        nav?.topItem?.title      = "DUMPVIEW"
-        nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
     }
 }

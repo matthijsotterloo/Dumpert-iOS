@@ -17,6 +17,7 @@ class VideoViewController: UIViewController {
     @IBOutlet var name:  UILabel!
     @IBOutlet var brief:  UILabel!
     @IBOutlet var tags:  UILabel!
+    @IBOutlet var date:  UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
