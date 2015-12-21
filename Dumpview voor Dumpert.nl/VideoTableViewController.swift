@@ -36,6 +36,7 @@ class VideoTableViewController: UITableViewController {
         
         //Parse 30 new video's
         print(DumpertApi.getRecentVideos(videoAmount))
+        refresh(self)
     }
     
 
@@ -157,7 +158,7 @@ class VideoTableViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    /*override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let nav = self.navigationController?.navigationBar
         let attributes = [
@@ -168,5 +169,5 @@ class VideoTableViewController: UITableViewController {
         nav?.topItem?.title      = "DUMPVIEW"
         nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = attributes
-    }
+    }*/
 }

@@ -354,6 +354,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Play" width="300" height="212"/>
+        <image name="Play" width="70" height="70"/>
     </resources>
 </document>
