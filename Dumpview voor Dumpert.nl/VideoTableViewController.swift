@@ -41,7 +41,6 @@ class VideoTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -54,11 +53,9 @@ class VideoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return videos.count
-        //return 5
     }
     
-    func refresh(sender:AnyObject)
-    {
+    func refresh(sender:AnyObject) {
         videoCount = 0
         videos.removeAll()
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
@@ -99,7 +96,7 @@ class VideoTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         self.performSegueWithIdentifier("videoSegue", sender: self)
         
     }
@@ -107,9 +104,8 @@ class VideoTableViewController: UITableViewController {
     func parseVideoXml(data: NSData) {
 
         let xml = SWXMLHash.parse(data)
-        
+    
         for video in xml["videos"]["video"] {
-            
             if(!video["nsfw"]){
                 Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
                     
@@ -142,29 +138,23 @@ class VideoTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 })
             }
-            
         }
     }
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "videoSegue" {
             let indexPath = self.tableView.indexPathForSelectedRow
             
             selectedVideo = indexPath!.row
-            
             tableView.deselectRowAtIndexPath(indexPath!, animated: true)
             
-            //Custom back button text
+            //Custom back button text and color
             let backItem = UIBarButtonItem()
-            backItem.title = "Video's"            
+            backItem.title = "Video's"
+            
+            self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
             navigationItem.backBarButtonItem = backItem
-            
-            
         }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
