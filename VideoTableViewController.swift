@@ -73,6 +73,7 @@ class VideoTableViewController: UITableViewController {
         cell.thumb?.image = video.thumb
         cell.title?.text = video.title
         cell.views?.text = video.views
+        cell.date?.text = video.date
         //print(video.kudos)
         cell.kudos?.text = video.kudos
         if video.kudos.rangeOfString("-") != nil {
@@ -124,7 +125,7 @@ class VideoTableViewController: UITableViewController {
                     let thumb = image
                     let title = video["title"].element!.text!
                     let brief = video["brief"].element!.text!
-                    let date = video["date"].element!.text!
+                    let date = Functions.convertDateFormater(video["date"].element!.text!)
                     let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
                     let videoLink = NSURL(string: video["videoLink"].element!.text!)
                     
