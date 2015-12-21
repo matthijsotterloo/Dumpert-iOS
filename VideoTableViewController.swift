@@ -12,6 +12,7 @@ import Foundation
 var selectedVideo: Int = 0
 var videos = [Video]()
 let videoAmount: Int = 10
+var videoCount: Int = 0
 
 
 class VideoTableViewController: UITableViewController {
@@ -31,12 +32,15 @@ class VideoTableViewController: UITableViewController {
         imageView.image = UIImage(named: "Logo.png")
         self.navigationItem.titleView = imageView
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
         // Check if there's an working internet connection
         //if Reachability.isConnectedToNetwork() == true {
             print("Internet connection available")
             //Parse 30 new video's
             print(DumpertApi.getRecentVideos(videoAmount))
-            parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+           // parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
 //        } else {
 //            // Show alert.
 //            print("No internet connection available")
@@ -44,7 +48,9 @@ class VideoTableViewController: UITableViewController {
 //            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
 //        }
         
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,18 +70,24 @@ class VideoTableViewController: UITableViewController {
         //return 5
     }
     
+    func refresh(sender:AnyObject)
+    {
+        videoCount = 0
+        videos.removeAll()
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
+        self.refreshControl!.endRefreshing()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! VideoTableViewCell
         let video = videos[indexPath.row]
         
-        //cell.textLabel?.text = video.title
-        //cell.imageView?.image = video.thumb
         cell.thumb?.image = video.thumb
         cell.title?.text = video.title
         cell.views?.text = video.views
         cell.date?.text = video.date
-        //print(video.kudos)
         cell.kudos?.text = video.kudos
+        
         if video.kudos.rangeOfString("-") != nil {
             cell.kudos?.textColor = UIColor.redColor()
         } else {
@@ -87,16 +99,11 @@ class VideoTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        //let lastSectionIndex: Int = tableView.numberOfSections - 1
-        //print(videos.count)
-        //print(videoAmount)
-        if(videos.count >= videoAmount - 1){
+        if(videos.count >= videoCount){
             let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
             if (indexPath.row == lastRowIndex) {
                 // This is the last cell
                 let video = videos[indexPath.row]
-
-                print(video.id)
                 parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
                 self.tableView.reloadData()
             }
@@ -108,7 +115,7 @@ class VideoTableViewController: UITableViewController {
         self.performSegueWithIdentifier("videoSegue", sender: self)
         
     }
-
+    
     func parseVideoXml(data: NSData){
 
         let xml = SWXMLHash.parse(data)
@@ -143,8 +150,10 @@ class VideoTableViewController: UITableViewController {
                         views = String(round(Double(views)!/1000.0)/10.0) + "K"
                     }
                     
+                    videoCount++
                     videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                     videos.sort { $0.id < $1.id }
+                    
                     self.tableView.reloadData()
                 })
             }
