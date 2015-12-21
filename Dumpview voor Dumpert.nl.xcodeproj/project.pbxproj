@@ -16,14 +16,22 @@
 		961F617A1C284D500073CFD4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F61791C284D500073CFD4 /* TodayViewController.swift */; };
 		961F617D1C284D500073CFD4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961F617B1C284D500073CFD4 /* MainInterface.storyboard */; };
 		961F61811C284D500073CFD4 /* Dumpview.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 961F61741C284D500073CFD4 /* Dumpview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		961F618D1C2854E10073CFD4 /* DumpertApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */; };
+		961F618E1C2854FC0073CFD4 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D91C1DF8C90012EF7A /* Image.swift */; };
+		961F618F1C2855080073CFD4 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F485F1C28242C0090E2AF /* Functions.swift */; };
+		961F61901C28553A0073CFD4 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D71C1DF6AE0012EF7A /* Video.swift */; };
+		961F61921C28569C0073CFD4 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */; };
+		961F61931C28569D0073CFD4 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */; };
+		961F61941C2857BD0073CFD4 /* DumpertApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */; };
+		961F619B1C285EF60073CFD4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E539591C232AA400EB35D3 /* Comment.swift */; };
+		961F61A41C2861270073CFD4 /* TodayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961F61A11C2860FE0073CFD4 /* TodayTableViewCell.xib */; };
+		961F61A51C28612B0073CFD4 /* TodayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F61A01C2860FE0073CFD4 /* TodayTableViewCell.swift */; };
 		96406AF21C21F707003E69E2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96406AF11C21F707003E69E2 /* TableViewCell.swift */; };
 		965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */; };
 		965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14B31C1DB9DE0012EF7A /* ViewController.swift */; };
 		965E14B71C1DB9DE0012EF7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E14B51C1DB9DE0012EF7A /* Main.storyboard */; };
 		965E14B91C1DB9DE0012EF7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E14B81C1DB9DE0012EF7A /* Assets.xcassets */; };
 		965E14BC1C1DB9DE0012EF7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E14BA1C1DB9DE0012EF7A /* LaunchScreen.storyboard */; };
-		965E14C41C1DBA0C0012EF7A /* DumpertApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14C31C1DBA0C0012EF7A /* DumpertApi.swift */; };
-		965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D51C1DF48A0012EF7A /* SWXMLHash.swift */; };
 		965E14D81C1DF6AE0012EF7A /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D71C1DF6AE0012EF7A /* Video.swift */; };
 		965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D91C1DF8C90012EF7A /* Image.swift */; };
 		967F48601C28242C0090E2AF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F485F1C28242C0090E2AF /* Functions.swift */; };
@@ -65,6 +73,8 @@
 		961F61791C284D500073CFD4 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		961F617C1C284D500073CFD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		961F617E1C284D500073CFD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961F61A01C2860FE0073CFD4 /* TodayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayTableViewCell.swift; path = ../TodayTableViewCell.swift; sourceTree = "<group>"; };
+		961F61A11C2860FE0073CFD4 /* TodayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayTableViewCell.xib; path = ../TodayTableViewCell.xib; sourceTree = "<group>"; };
 		96406AF11C21F707003E69E2 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumpview voor Dumpert.nl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +122,8 @@
 		961F61781C284D500073CFD4 /* Dumpview Widget */ = {
 			isa = PBXGroup;
 			children = (
+				961F61A01C2860FE0073CFD4 /* TodayTableViewCell.swift */,
+				961F61A11C2860FE0073CFD4 /* TodayTableViewCell.xib */,
 				961F61791C284D500073CFD4 /* TodayViewController.swift */,
 				961F617B1C284D500073CFD4 /* MainInterface.storyboard */,
 				961F617E1C284D500073CFD4 /* Info.plist */,
@@ -248,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				961F617D1C284D500073CFD4 /* MainInterface.storyboard in Resources */,
+				961F61A41C2861270073CFD4 /* TodayTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961F618E1C2854FC0073CFD4 /* Image.swift in Sources */,
 				961F617A1C284D500073CFD4 /* TodayViewController.swift in Sources */,
+				961F61941C2857BD0073CFD4 /* DumpertApi.swift in Sources */,
+				961F619B1C285EF60073CFD4 /* Comment.swift in Sources */,
+				961F618F1C2855080073CFD4 /* Functions.swift in Sources */,
+				961F61931C28569D0073CFD4 /* SWXMLHash.swift in Sources */,
+				961F61901C28553A0073CFD4 /* Video.swift in Sources */,
+				961F61A51C28612B0073CFD4 /* TodayTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,16 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */,
 				96E5395A1C232AA400EB35D3 /* Comment.swift in Sources */,
 				965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */,
+				961F61921C28569C0073CFD4 /* SWXMLHash.swift in Sources */,
+				961F618D1C2854E10073CFD4 /* DumpertApi.swift in Sources */,
 				967F48601C28242C0090E2AF /* Functions.swift in Sources */,
 				96406AF21C21F707003E69E2 /* TableViewCell.swift in Sources */,
 				965E14B41C1DB9DE0012EF7A /* ViewController.swift in Sources */,
 				961F616B1C2848730073CFD4 /* VideoViewController.swift in Sources */,
 				965E14B21C1DB9DE0012EF7A /* AppDelegate.swift in Sources */,
 				961F616A1C2848730073CFD4 /* VideoTableViewController.swift in Sources */,
-				965E14C41C1DBA0C0012EF7A /* DumpertApi.swift in Sources */,
 				965E14D81C1DF6AE0012EF7A /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl.Dumpview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -352,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl.Dumpview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -455,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -477,6 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.JoepdeJong.Dumpview-voor-Dumpert-nl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dumpview voor Dumpert.nl-Bridging-Header.h";
 			};
 			name = Release;
@@ -491,6 +515,7 @@
 				961F61841C284D510073CFD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		965E14A91C1DB9DE0012EF7A /* Build configuration list for PBXProject "Dumpview voor Dumpert.nl" */ = {
 			isa = XCConfigurationList;
