@@ -14,7 +14,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="video" id="o4E-ez-Upl" customClass="VideoTableViewCell" customModule="Dumpview_voor_Dumpert_nl" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
@@ -54,7 +55,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-YD-SZ5">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1I0-YD-SZ5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -101,16 +102,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dit is een omschrijving van de video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-qt-mFU">
-                                <rect key="frame" x="28" y="332" width="281" height="101"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="6zA-Ow-3bd"/>
-                                    <constraint firstAttribute="width" constant="281" id="Qhw-7X-hBd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Video titel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39W-H6-new">
                                 <rect key="frame" x="12" y="280" width="296" height="48"/>
                                 <constraints>
@@ -126,6 +117,22 @@
                                         <exclude reference="8ZR-rf-OS2"/>
                                         <exclude reference="jYY-Pm-DZB"/>
                                         <exclude reference="s2M-Zv-Quw"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dit is een omschrijving van de video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-qt-mFU">
+                                <rect key="frame" x="27" y="422" width="281" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="6zA-Ow-3bd"/>
+                                    <constraint firstAttribute="width" constant="281" id="Qhw-7X-hBd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6zA-Ow-3bd"/>
+                                        <exclude reference="Qhw-7X-hBd"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -195,7 +202,9 @@
                                 <exclude reference="AT1-HM-G2X"/>
                                 <exclude reference="D1C-ZZ-50P"/>
                                 <exclude reference="JtC-hJ-B3D"/>
+                                <exclude reference="Sng-8M-Zt0"/>
                                 <exclude reference="UrL-bq-yZP"/>
+                                <exclude reference="X9S-qy-LYG"/>
                                 <exclude reference="Xxi-gy-oRR"/>
                                 <exclude reference="fLh-y9-K77"/>
                                 <exclude reference="pZJ-pe-48l"/>
@@ -208,15 +217,6 @@
                                 <exclude reference="mK2-OG-STL"/>
                                 <exclude reference="t7K-8z-Ruy"/>
                                 <exclude reference="zqB-OA-hN5"/>
-                                <exclude reference="2Cc-YC-Plg"/>
-                                <exclude reference="3ch-07-Q9B"/>
-                                <exclude reference="AFT-V5-anm"/>
-                                <exclude reference="KOn-X2-ImF"/>
-                                <exclude reference="Vn6-Sa-S7k"/>
-                                <exclude reference="byT-2x-0yi"/>
-                                <exclude reference="eBe-Ud-OmW"/>
-                                <exclude reference="l2i-rq-Nb1"/>
-                                <exclude reference="z9N-hY-MCs"/>
                                 <exclude reference="YHC-55-BXX"/>
                                 <exclude reference="5M6-Rw-tW7"/>
                                 <exclude reference="UFR-g3-oYR"/>
@@ -227,8 +227,20 @@
                                 <exclude reference="ffe-oK-r5N"/>
                                 <exclude reference="9d1-fq-t1K"/>
                                 <exclude reference="Xwn-FB-nkK"/>
+                                <exclude reference="2Cc-YC-Plg"/>
+                                <exclude reference="3ch-07-Q9B"/>
+                                <exclude reference="AFT-V5-anm"/>
+                                <exclude reference="KOn-X2-ImF"/>
+                                <exclude reference="Rrd-nf-kTX"/>
+                                <exclude reference="Vn6-Sa-S7k"/>
+                                <exclude reference="byT-2x-0yi"/>
+                                <exclude reference="eBe-Ud-OmW"/>
+                                <exclude reference="l2i-rq-Nb1"/>
+                                <exclude reference="tvo-KE-mi6"/>
+                                <exclude reference="z9N-hY-MCs"/>
                                 <exclude reference="cvE-P4-g8C"/>
                                 <exclude reference="khd-6X-YzE"/>
+                                <exclude reference="l5S-2R-whB"/>
                                 <exclude reference="vsz-Yl-JIM"/>
                             </mask>
                         </variation>

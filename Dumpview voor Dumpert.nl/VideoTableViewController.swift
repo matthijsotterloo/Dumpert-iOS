@@ -26,10 +26,10 @@ class VideoTableViewController: UITableViewController {
         tableView.rowHeight = 120
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        /*let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
-        self.navigationItem.titleView = imageView
+        self.navigationItem.titleView = imageView*/
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -158,7 +158,7 @@ class VideoTableViewController: UITableViewController {
         }
     }
     
-    /*override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let nav = self.navigationController?.navigationBar
         let attributes = [
@@ -169,5 +169,5 @@ class VideoTableViewController: UITableViewController {
         nav?.topItem?.title      = "DUMPVIEW"
         nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = attributes
-    }*/
+    }
 }
