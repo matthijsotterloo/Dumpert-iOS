@@ -20,7 +20,6 @@ class VideoTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let alertView = SCLAlertView()
         
         let nib = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "video")
@@ -35,20 +34,8 @@ class VideoTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         
-        // Check if there's an working internet connection
-        //if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection available")
-            //Parse 30 new video's
-            print(DumpertApi.getRecentVideos(videoAmount))
-           // parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
-//        } else {
-//            // Show alert.
-//            print("No internet connection available")
-//            alertView.showCloseButton = false
-//            alertView.showWarning("Geen internet", subTitle: "Voor het gebruik van Dumpert viewer is een internet verbinding vereist.")
-//        }
-        
-        
+        //Parse 30 new video's
+        print(DumpertApi.getRecentVideos(videoAmount))
     }
     
 
@@ -88,6 +75,7 @@ class VideoTableViewController: UITableViewController {
         cell.date?.text = video.date
         cell.kudos?.text = video.kudos
         
+        // If kudos is negative value change color to red.
         if video.kudos.rangeOfString("-") != nil {
             cell.kudos?.textColor = UIColor.redColor()
         } else {
@@ -116,14 +104,11 @@ class VideoTableViewController: UITableViewController {
         
     }
     
-    func parseVideoXml(data: NSData){
+    func parseVideoXml(data: NSData) {
 
         let xml = SWXMLHash.parse(data)
-
-        //var videos = [Video]()
         
         for video in xml["videos"]["video"] {
-            //print(video["thumb"].element!.text!)
             
             if(!video["nsfw"]){
                 Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
@@ -161,51 +146,6 @@ class VideoTableViewController: UITableViewController {
         }
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -219,13 +159,24 @@ class VideoTableViewController: UITableViewController {
             
             //Custom back button text
             let backItem = UIBarButtonItem()
-            backItem.title = "Video's"
-            //backItem.
-            
+            backItem.title = "Video's"            
             navigationItem.backBarButtonItem = backItem
             
             
         }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let nav = self.navigationController?.navigationBar
+        let attributes = [
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "AvenirNextLTPro-Bold", size: 30)!
+        ]
+        
+        nav?.topItem?.title      = "DUMPVIEW"
+        nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
     }
 }
