@@ -13,7 +13,6 @@
 		961F616E1C284C090073CFD4 /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 961F616C1C284BF40073CFD4 /* AvenirNextLTPro-Bold.otf */; };
 		961F616F1C284C0C0073CFD4 /* Gotham-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 961F616D1C284BFA0073CFD4 /* Gotham-Book.ttf */; };
 		961F61771C284D500073CFD4 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F61761C284D500073CFD4 /* NotificationCenter.framework */; };
-		961F617A1C284D500073CFD4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F61791C284D500073CFD4 /* TodayViewController.swift */; };
 		961F617D1C284D500073CFD4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961F617B1C284D500073CFD4 /* MainInterface.storyboard */; };
 		961F61811C284D500073CFD4 /* Dumpview.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 961F61741C284D500073CFD4 /* Dumpview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		96406AF21C21F707003E69E2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96406AF11C21F707003E69E2 /* TableViewCell.swift */; };
@@ -28,6 +27,11 @@
 		965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E14D91C1DF8C90012EF7A /* Image.swift */; };
 		967F48601C28242C0090E2AF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967F485F1C28242C0090E2AF /* Functions.swift */; };
 		96E5395A1C232AA400EB35D3 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E539591C232AA400EB35D3 /* Comment.swift */; };
+		ADC35E9A1C28551E00103D59 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC35E981C28551B00103D59 /* TodayViewController.swift */; };
+		ADC35E9D1C28552E00103D59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADC35E9B1C28552A00103D59 /* Info.plist */; };
+		ADC35E9E1C28558D00103D59 /* AvenirNextLTPro-Bold.otf in Sources */ = {isa = PBXBuildFile; fileRef = 961F616C1C284BF40073CFD4 /* AvenirNextLTPro-Bold.otf */; };
+		ADC35E9F1C28558D00103D59 /* Gotham-Book.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 961F616D1C284BFA0073CFD4 /* Gotham-Book.ttf */; };
+		ADC35EA01C28558D00103D59 /* VideoTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 961F61661C28486C0073CFD4 /* VideoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +66,7 @@
 		961F616D1C284BFA0073CFD4 /* Gotham-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.ttf"; sourceTree = "<group>"; };
 		961F61741C284D500073CFD4 /* Dumpview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Dumpview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		961F61761C284D500073CFD4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		961F61791C284D500073CFD4 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		961F617C1C284D500073CFD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		961F617E1C284D500073CFD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96406AF11C21F707003E69E2 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		965E14AE1C1DB9DE0012EF7A /* Dumpview voor Dumpert.nl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dumpview voor Dumpert.nl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E14B11C1DB9DE0012EF7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		965E14D91C1DF8C90012EF7A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		967F485F1C28242C0090E2AF /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		96E539591C232AA400EB35D3 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		ADC35E981C28551B00103D59 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		ADC35E9B1C28552A00103D59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +116,9 @@
 		961F61781C284D500073CFD4 /* Dumpview Widget */ = {
 			isa = PBXGroup;
 			children = (
-				961F61791C284D500073CFD4 /* TodayViewController.swift */,
+				ADC35E981C28551B00103D59 /* TodayViewController.swift */,
 				961F617B1C284D500073CFD4 /* MainInterface.storyboard */,
-				961F617E1C284D500073CFD4 /* Info.plist */,
+				ADC35E9B1C28552A00103D59 /* Info.plist */,
 			);
 			name = "Dumpview Widget";
 			path = Dumpview;
@@ -247,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC35E9D1C28552E00103D59 /* Info.plist in Resources */,
 				961F617D1C284D500073CFD4 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961F617A1C284D500073CFD4 /* TodayViewController.swift in Sources */,
+				ADC35E9A1C28551E00103D59 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC35E9E1C28558D00103D59 /* AvenirNextLTPro-Bold.otf in Sources */,
+				ADC35E9F1C28558D00103D59 /* Gotham-Book.ttf in Sources */,
+				ADC35EA01C28558D00103D59 /* VideoTableViewCell.xib in Sources */,
 				965E14D61C1DF48A0012EF7A /* SWXMLHash.swift in Sources */,
 				96E5395A1C232AA400EB35D3 /* Comment.swift in Sources */,
 				965E14DA1C1DF8C90012EF7A /* Image.swift in Sources */,
@@ -447,9 +455,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Dumpview",
-					voor,
-					Dumpert.nl,
 				);
 				INFOPLIST_FILE = "Dumpview voor Dumpert.nl/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -469,9 +474,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Dumpview",
-					voor,
-					Dumpert.nl,
 				);
 				INFOPLIST_FILE = "Dumpview voor Dumpert.nl/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -491,6 +493,7 @@
 				961F61841C284D510073CFD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		965E14A91C1DB9DE0012EF7A /* Build configuration list for PBXProject "Dumpview voor Dumpert.nl" */ = {
 			isa = XCConfigurationList;

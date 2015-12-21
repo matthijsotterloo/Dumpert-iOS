@@ -77,7 +77,7 @@ class VideoTableViewController: UITableViewController {
         if video.kudos.rangeOfString("-") != nil {
             cell.kudos?.textColor = UIColor.redColor()
         } else {
-            cell.kudos?.textColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
+            cell.kudos?.textColor = UIColor(red: 255.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         }
         
         return cell
@@ -167,7 +167,7 @@ class VideoTableViewController: UITableViewController {
         ]
         
         nav?.topItem?.title      = "DUMPVIEW"
-        nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
+        nav?.barTintColor        = UIColor(red: 102.0/255.0, green: 194.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = attributes
     }
 }
