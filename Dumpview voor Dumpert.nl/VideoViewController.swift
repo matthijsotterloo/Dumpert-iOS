@@ -18,10 +18,30 @@ class VideoViewController: UIViewController {
     @IBOutlet var brief:  UILabel!
     @IBOutlet var tags:  UILabel!
     @IBOutlet var date:  UILabel!
+    
+    //var openVideo = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let video = openVideo as? Video {
+            let player = AVPlayer(URL: video.videoLink)
+            let playerController = AVPlayerViewController()
+            
+            name?.text  = video.title.uppercaseString
+            views.text  = video.views
+            kudos.text  = video.kudos
+            brief?.text = video.brief
+            
+            playerController.player = player
+            self.addChildViewController(playerController)
+            self.view.addSubview(playerController.view)
+            playerController.view.frame = videoView.frame
+            
+            //Automatically play video
+            player.play()
+
+        }
         if(selectedVideo > -1){
             let video = videos[selectedVideo] as Video
             

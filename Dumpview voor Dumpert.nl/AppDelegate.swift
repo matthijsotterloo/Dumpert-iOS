@@ -8,6 +8,8 @@
 
 import UIKit
 
+var openString = ""
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,11 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         //let scheme = url.scheme
-        let path = url.path
-        let query = url.query
+        //let path = url.path
+        //let query = url.query
         
-        print(path)
-        print(query)
+        //print(path)
+        //print(query)
+        
+        print("test2")
+        let query = url.query?.stringByReplacingOccurrencesOfString("id=", withString: "")
+        //openString = DumpertApi.getItemMetaUrl(query!)
+        VideoTableViewController().parseVideoXml(DumpertApi.getXML(DumpertApi.getItemMetaUrl(query!))!)
+        //VideoTableViewController().navigationController?.pushViewController(VideoViewController(), animated: true)
+        
+        //VideoTableViewController().navigationController?.pushViewController(VideoViewController(), animated: true)
 
         return true
     }

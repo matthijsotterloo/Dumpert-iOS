@@ -24,7 +24,7 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         
-        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(10))!)
+        parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(5))!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +59,15 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
         //cell.imageView?.image = video.thumb
         cell.thumb?.image = video.thumb
         cell.title?.text = video.title
+        cell.kudos?.text = video.kudos
+        cell.views?.text = video.views
+        
+        // If kudos is negative value change color to red.
+        if video.kudos.rangeOfString("-") != nil {
+            cell.kudos?.textColor = UIColor(red: 255.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+        } else {
+            cell.kudos?.textColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
+        }
         
         return cell
     }
@@ -66,6 +75,7 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let id = videos[indexPath.row].id
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         extensionContext?.openURL(NSURL(string:"dumpview://video?id=\(id)")!, completionHandler: nil)
         
@@ -76,6 +86,7 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
     func parseVideoXml(data: NSData) {
         
         let xml = SWXMLHash.parse(data)
+        videos.removeAll()
         
         for video in xml["videos"]["video"] {
             if(!video["nsfw"]){
@@ -107,6 +118,7 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
                     videos.sort { $0.id < $1.id }
                     
                     self.tableView.reloadData()
+                    self.preferredContentSize.height = self.tableView.contentSize.height;
                 })
             }
         }

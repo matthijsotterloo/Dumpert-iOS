@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+var openVideo:AnyObject = ""
 var selectedVideo: Int = 0
 var videos = [Video]()
 let videoAmount: Int = 10
@@ -106,39 +107,73 @@ class VideoTableViewController: UITableViewController {
 
         let xml = SWXMLHash.parse(data)
     
-        for video in xml["videos"]["video"] {
-            if(!video["nsfw"]){
-                Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
-                    
-                    let id = video["id"].element!.text!
-                    let thumb = image
-                    let title = video["title"].element!.text!
-                    let brief = video["brief"].element!.text!
-                    let date = Functions.convertDateFormater(video["date"].element!.text!)
-                    let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
-                    let videoLink = NSURL(string: video["videoLink"].element!.text!)
-                    
-                    var tags = ""
-                    
-                    if(video["tags"]){
-                        tags = video["tags"].element!.text!
-                    }
-                    
-                    var views = video["views"].element!.text!
-                    let kudos = video["kudos"].element!.text!
-                    
-                    // If more then 1.000 views switch to K.
-                    if(Double(views) >= 10000){
-                        views = String(round(Double(views)!/1000.0)/10.0) + "K"
-                    }
-                    
-                    videoCount++
-                    videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
-                    videos.sort { $0.id < $1.id }
-                    
-                    self.tableView.reloadData()
-                })
+        if(xml["videos"]){
+            for video in xml["videos"]["video"] {
+                if(!video["nsfw"]){
+                    Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
+                        
+                        let id = video["id"].element!.text!
+                        let thumb = image
+                        let title = video["title"].element!.text!
+                        let brief = video["brief"].element!.text!
+                        let date = Functions.convertDateFormater(video["date"].element!.text!)
+                        let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
+                        let videoLink = NSURL(string: video["videoLink"].element!.text!)
+                        
+                        var tags = ""
+                        
+                        if(video["tags"]){
+                            tags = video["tags"].element!.text!
+                        }
+                        
+                        var views = video["views"].element!.text!
+                        let kudos = video["kudos"].element!.text!
+                        
+                        // If more then 1.000 views switch to K.
+                        if(Double(views) >= 10000){
+                            views = String(round(Double(views)!/1000.0)/10.0) + "K"
+                        }
+                        
+                        videoCount++
+                        videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
+                        videos.sort { $0.id < $1.id }
+                        
+                        self.tableView.reloadData()
+                    })
+                }
             }
+        } else if(xml["meta"]["video"]){
+            print("test3")
+            let video = xml["meta"]["video"]
+            Image.downloadImage(NSURL(string: video["thumb"].element!.text!)!, completion: { (image) -> Void in
+                let id = video["id"].element!.text!
+                let thumb = image
+                let title = video["title"].element!.text!
+                let brief = video["brief"].element!.text!
+                let date = Functions.convertDateFormater(video["date"].element!.text!)
+                let videoLinkLow = NSURL(string: video["videoLinkLow"].element!.text!)
+                let videoLink = NSURL(string: video["videoLink"].element!.text!)
+                
+                var tags = ""
+                
+                if(video["tags"]){
+                    tags = video["tags"].element!.text!
+                }
+                
+                var views = video["views"].element!.text!
+                let kudos = video["kudos"].element!.text!
+                
+                // If more then 1.000 views switch to K.
+                if(Double(views) >= 10000){
+                    views = String(round(Double(views)!/1000.0)/10.0) + "K"
+                }
+                
+                openVideo = Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos)
+                //self.navigationController?.pushViewController(VideoViewController(), animated: true)
+                
+                VideoTableViewController().performSegueWithIdentifier("videoSegue", sender: self)
+                
+            })
         }
     }
 
@@ -169,5 +204,12 @@ class VideoTableViewController: UITableViewController {
         nav?.topItem?.title      = "DUMPVIEW"
         nav?.barTintColor        = UIColor(red: 103.0/255.0, green: 193.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = attributes
+        
+        
+        if(openString != ""){
+            print("test")
+            print(openString)
+            parseVideoXml(DumpertApi.getXML(openString)!)
+        }
     }
 }
