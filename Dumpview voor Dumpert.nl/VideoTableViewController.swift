@@ -35,7 +35,7 @@ class VideoTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         
-        //Parse 30 new video's
+        //Parse x new video's
         print(DumpertApi.getRecentVideos(videoAmount))
         refresh(self)
     }
@@ -54,18 +54,25 @@ class VideoTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //if videos.count < 9 { return 0 }
+        
         return videos.count
     }
     
     func refresh(sender:AnyObject) {
+        
         videoCount = 0
         videos.removeAll()
+        
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
-        self.refreshControl!.endRefreshing()
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: VideoTableViewCell = tableView.dequeueReusableCellWithIdentifier("video", forIndexPath: indexPath) as! VideoTableViewCell
+        
         let video = videos[indexPath.row]
         
         cell.thumb?.image = video.thumb
@@ -76,9 +83,9 @@ class VideoTableViewController: UITableViewController {
         
         // If kudos is negative value change color to red.
         if video.kudos.rangeOfString("-") != nil {
-            cell.kudos?.textColor = UIColor.redColor()
-        } else {
             cell.kudos?.textColor = UIColor(red: 255.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+        } else {
+            cell.kudos?.textColor = UIColor(red: 102.0/255.0, green: 194.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         }
         
         return cell
@@ -86,11 +93,16 @@ class VideoTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        if(videos.count >= videoCount){
+        //print(videoCount)
+        //print(videos.count)
+        
+        if(videos.count == videoCount){
             let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
             if (indexPath.row == lastRowIndex) {
+                
                 // This is the last cell
-                let video = videos[indexPath.row]
+                let video = videos[lastRowIndex]
+                print(video.id)
                 parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(String(video.id)))!)
                 self.tableView.reloadData()
             }
@@ -140,8 +152,11 @@ class VideoTableViewController: UITableViewController {
                         
                         self.tableView.reloadData()
                     })
+                } else {
+                    //videoCount = videoCount - 1
                 }
             }
+            
         } else if(xml["meta"]["video"]){
             print("test3")
             let video = xml["meta"]["video"]
