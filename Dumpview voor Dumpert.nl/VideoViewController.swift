@@ -11,13 +11,15 @@ import AVKit
 import AVFoundation
 
 class VideoViewController: UIViewController {
-    @IBOutlet var videoView: UIView!
-    @IBOutlet var kudos: UILabel!
-    @IBOutlet var views: UILabel!
-    @IBOutlet var name:  UILabel!
-    @IBOutlet var brief:  UILabel!
-    @IBOutlet var tags:  UILabel!
-    @IBOutlet var date:  UILabel!
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var kudos: UILabel!
+    @IBOutlet weak var views: UILabel!
+    @IBOutlet weak var name:  UILabel!
+    @IBOutlet weak var brief:  UILabel!
+    @IBOutlet weak var tags:  UILabel!
+    @IBOutlet weak var date:  UILabel!
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
     
     //var openVideo = ""
 
@@ -70,6 +72,19 @@ class VideoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func button1(sender: UIButton) {
+        button1.backgroundColor = UIColor(red: 102/255, green: 194/255, blue: 33/255, alpha: 1)
+        button2.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+        brief.hidden = false;
+    }
+    
+    @IBAction func button2(sender: UIButton) {
+        button1.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+        button2.backgroundColor = UIColor(red: 102/255, green: 194/255, blue: 33/255, alpha: 1)
+        brief.hidden = true;
+    }
+    
     
 
     /*
