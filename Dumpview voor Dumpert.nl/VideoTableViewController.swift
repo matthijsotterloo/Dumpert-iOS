@@ -115,6 +115,22 @@ class VideoTableViewController: UITableViewController {
         
     }
     
+    func parseComments(data: NSData) {
+        
+        let xml = SWXMLHash.parse(data)
+        
+        if(xml["comments"]){
+            for comment in xml["comments"]["comment"] {
+                
+                    let id = comment["id"].element!.text!
+                    let text = comment["text"].element!.text!
+                    let author = comment["author"].element!.text!
+                    let date = Functions.convertDateFormater(comment["date"].element!.text!)
+
+            }
+        }
+    }
+    
     func parseVideoXml(data: NSData) {
 
         let xml = SWXMLHash.parse(data)
