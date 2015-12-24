@@ -64,9 +64,9 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // If kudos is negative value change color to red.
         if video.kudos.rangeOfString("-") != nil {
-            cell.kudos?.textColor = UIColor(red: 255.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+            cell.kudos?.textColor = UIColor(red: 255/255, green: 30.0/255, blue: 30.0/255, alpha: 1)
         } else {
-            cell.kudos?.textColor = UIColor(red: 110/256, green: 187/256, blue: 47/256, alpha: 1)
+            cell.kudos?.textColor = UIColor(red: 110/255, green: 187/255, blue: 47/255, alpha: 1)
         }
         
         return cell
