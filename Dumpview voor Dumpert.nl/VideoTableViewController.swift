@@ -63,10 +63,10 @@ class VideoTableViewController: UITableViewController {
         
         videoCount = 0
         videos.removeAll()
+        self.tableView.reloadData()
         
         parseVideoXml(DumpertApi.getXML(DumpertApi.getRecentVideos(videoAmount))!)
         
-        self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
     }
     
@@ -96,9 +96,14 @@ class VideoTableViewController: UITableViewController {
         //print(videoCount)
         //print(videos.count)
         
-        if(videos.count == videoCount){
+        if(videos.count == videoCount && videoCount >= 9){
             let lastRowIndex: Int = tableView.numberOfRowsInSection(0) - 1
             if (indexPath.row == lastRowIndex) {
+                
+                for video2 in videos {
+                    print("V: \(video2.id)")
+                }
+                print("-------")
                 
                 // This is the last cell
                 let video = videos[lastRowIndex]

@@ -20,13 +20,15 @@ class ViewController: UIViewController {
         //print(DumpertApi.getRecentImages(30))
         //print(DumpertApi.getRelated("6702966_7955f767", paramInt: 10))
         //print(DumpertApi.getItemMetaUrl("6702966_7955f767"))
+        
+        print(DumpertApi.getComments("6705294_5bc47030"))
                 
-        let data = DumpertApi.getXML(DumpertApi.getRecentVideos(30))
+        //let data = DumpertApi.getXML(DumpertApi.getComments("6705294_5bc47030"))
         
 //        XmlParser.beginParsing()
 //        print(XmlParser.posts)
         
-        let xml = SWXMLHash.parse(data!)
+        //let xml = SWXMLHash.parse(data!)
         
         //print(xml)
         //print(xml["videos"]["video"][0]["id"].element?.text)

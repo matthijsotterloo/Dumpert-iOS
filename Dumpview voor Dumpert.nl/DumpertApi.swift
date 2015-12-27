@@ -33,7 +33,7 @@ let apiKey = "832618e60246c45c59a124f4f5a09c8f"
 
 class DumpertApi {
     
-    private class func getItemsUrl(paramString1: String, paramString2: String, paramInt: Int) -> String {
+    private class func getItemsUrl(paramString1: String, paramString2: String, paramInt: Int, paramString3: String) -> String {
         
         var paramString1 = paramString1
         
@@ -54,6 +54,9 @@ class DumpertApi {
             else if(paramString1.containsString("getMeta")){
                 paramString1 = paramString1 + "&id=" + paramString2
             }
+            else if(paramString1.containsString("getSearch")){
+                paramString1 = paramString1 + "&terms=" + paramString2
+            }
             
         }
         
@@ -71,7 +74,7 @@ class DumpertApi {
     
     private class func getRecentVideos(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_api/getRecentVideos?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRecentVideos?", paramString2: paramString, paramInt: paramInt, paramString3: "")
 
     }
     
@@ -95,7 +98,7 @@ class DumpertApi {
     
     private class func getRecentImages(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_api/getRecentImages?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRecentImages?", paramString2: paramString, paramInt: paramInt, paramString3: "")
         
     }
     
@@ -119,7 +122,7 @@ class DumpertApi {
     
     private class func getTop100(paramString: String, paramInt: Int) -> String
     {
-        return getItemsUrl("/mobile_api/getTop100?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getTop100?", paramString2: paramString, paramInt: paramInt, paramString3: "")
         
     }
     
@@ -143,7 +146,7 @@ class DumpertApi {
     
     internal class func getRelated(paramString: String, paramInt: Int) -> String {
     
-        return getItemsUrl("/mobile_api/getRelated?", paramString2: paramString, paramInt: paramInt)
+        return getItemsUrl("/mobile_api/getRelated?", paramString2: paramString, paramInt: paramInt, paramString3: "")
         
     }
     
@@ -151,7 +154,7 @@ class DumpertApi {
     
     internal class func getItemMetaUrl(paramString: String) -> String {
         
-        return getItemsUrl("/mobile_api/getMeta?", paramString2: paramString, paramInt: -1)
+        return getItemsUrl("/mobile_api/getMeta?", paramString2: paramString, paramInt: -1, paramString3: "")
         
     }
     
@@ -186,4 +189,48 @@ class DumpertApi {
         return comments
     
     }
+    //Search
+    
+    /*private class func search(cat: String, maxItems: Int, terms: String, sinceId: String){
+        
+        getItemsUrl("/mobile_api/getMeta?", paramString2: terms, paramInt: maxItems, paramString3: <#T##String#>)
+        //return getItemsUrl(paramString1, paramString2: paramString2, paramInt: paramInt1)
+    }
+    
+    internal class func search(paramString: String, paramInt: Int){
+        return search(paramString, paramInt1: paramInt, paramString2: "", paramInt2: -1);
+    }
+    
+    internal class func search(paramString: String, paramInt1: Int, paramInt2: Int){
+        return search(paramString, paramInt1: paramInt1, paramString2: "", paramInt2: paramInt2);
+    }
+    
+    internal class func search(paramString: String, paramInt1: Int, paramString2: String){
+        return search(paramString, paramInt1: paramInt1, paramString2: paramString2, paramInt2: -1);
+    }*/
+    
+    //http://www.dumpert.nl/mobile_api/getSearch?maxItems=10&sinceId=6670455_8fe87566&terms=mevrouw&cat=recentVideos&h=fcf576e684de0c5834ba5ba8b31b2293
+    //http://www.dumpert.nl/mobile_api/getSearch?maxItems=10&terms=mevrouw&cat=recentVideos&h=5cb86f03116f1946dd250979dae057ac
+    //http://www.dumpert.nl/mobile_api/getSearch?maxItems=10&sinceId=6687343_a85c0ec4&terms=mevrouw&cat=recentVideos&h=b55523215a972f7bca79175be58d4f9a
+    
+    
+    ///mobile_api/getSearch?&terms=mevrouw&cat=recentVideos&h=4f2b2b6c8d922c71432b72bb2c8187b9
+    //http://www.dumpert.nl/mobile_api/getSearch?&terms=mevrouw&cat=recentVideos&h=4f2b2b6c8d922c71432b72bb2c8187b9
+    
+    
+//    public static String search(String paramString1, int paramInt1, String paramString2, int paramInt2)
+//    {
+//    try
+//    {
+//    StringBuilder localStringBuilder = new StringBuilder().append("/mobile_feeds/getSearch?terms=").append(URLEncoder.encode(paramString1, "UTF-8")).append("&cat=");
+//    if (paramInt1 == 2131492879);
+//    for (String str = "recentImages"; ; str = "recentVideos")
+//    return getItemsURL(str, paramString2, paramInt2);
+//    }
+//    catch (UnsupportedEncodingException localUnsupportedEncodingException)
+//    {
+//    localUnsupportedEncodingException.printStackTrace();
+//    }
+//    return null;
+//    }
 }

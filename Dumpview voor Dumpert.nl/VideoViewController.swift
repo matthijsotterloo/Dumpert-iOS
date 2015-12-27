@@ -18,11 +18,18 @@ class VideoViewController: UIViewController {
     @IBOutlet var brief:  UILabel!
     @IBOutlet var tags:  UILabel!
     @IBOutlet var date:  UILabel!
+    @IBOutlet var kudosView: UIImageView!
+    @IBOutlet var dumpview: UINavigationItem!
     
     //var openVideo = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
+        self.dumpview.title      = "DUMPVIEW"
+        //self.dumpview.title        = UIColor(red: 102.0/255.0, green: 194.0/255.0, blue: 33.0/255.0, alpha: 1.0)
+        //self.navigationController?.navigationBar.titleTextAttributes = attributes
         
         if let video = openVideo as? Video {
             let player = AVPlayer(URL: video.videoLink)
@@ -49,9 +56,10 @@ class VideoViewController: UIViewController {
             let player = AVPlayer(URL: video.videoLink)
             let playerController = AVPlayerViewController()
             
-            name?.text  = video.title.uppercaseString
+            name?.text  = video.title  //.uppercaseString
             views.text  = video.views
             kudos.text  = video.kudos
+            kudosView.tintColor = UIColor(red: 255.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
             brief?.text = video.brief
             
             playerController.player = player
