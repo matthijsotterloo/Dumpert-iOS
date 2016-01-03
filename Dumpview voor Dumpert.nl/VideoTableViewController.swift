@@ -27,6 +27,7 @@ class VideoTableViewController: UITableViewController {
         tableView.rowHeight = 120
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableData:", name: "reload", object: nil)
         /*let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
         imageView.contentMode = .ScaleAspectFit
         imageView.image = UIImage(named: "Logo.png")
@@ -43,6 +44,10 @@ class VideoTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func reloadTableData(notification: NSNotification) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source

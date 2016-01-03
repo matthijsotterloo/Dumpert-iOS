@@ -51,14 +51,14 @@ class Comment {
                             views = String(round(Double(views)!/1000.0)/10.0) + "K"
                         }
                         
-                        videoCount++
+//                        videoCount++
                         videos.append(Video(id: id, thumb: thumb!, title: title, brief: brief, date: date, videoLinkLow: videoLinkLow!, videoLink: videoLink!, tags: tags, views: views, kudos: kudos))
                         videos.sort { $0.id < $1.id }
                         
-                        self.tableView.reloadData()
+                        NSNotificationCenter.defaultCenter().postNotificationName("reload", object: nil)
                     })
                 } else {
-                    //videoCount = videoCount - 1
+//                    videoCount = videoCount - 1
                 }
             }
             
